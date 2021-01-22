@@ -9,10 +9,10 @@ GET http://{ipAddress}/relay/{id}
 POST http://{ipAddress}/relay/{id}/?value=[0|1]
 
 ## Web Interface
-![GitHub Logo](/images/webInterface.jpg){:height="50%" width="50%"}
+![webInterface](/images/webInterface.jpg){:height="1389px" width="642px"}
 
 ## Wiring
 Terrible pictures of my wiring.  I know my desk is a mess
-![GitHub Logo](/images/wiring1.jpg)
+![Wiring1](/images/wiring1.jpg)
 
-![GitHub Logo](/images/wiring2.jpg)
+![Wiring2](/images/wiring2.jpg)
