@@ -9,7 +9,7 @@ GET http://{ipAddress}/relay/{id}
 POST http://{ipAddress}/relay/{id}/?value=[0|1]
 
 ## Web Interface
-![webInterface](/images/webInterface.jpg){:height="50%" width="50%"}
+<img src="./images/webInterface.jpg" width="500px">
 
 ## Wiring
 Terrible pictures of my wiring.  I know my desk is a mess
