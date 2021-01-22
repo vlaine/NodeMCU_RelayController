@@ -9,7 +9,7 @@ GET http://{ipAddress}/relay/{id}
 POST http://{ipAddress}/relay/{id}/?value=[0|1]
 
 ## Web Interface
-![GitHub Logo](/images/webInterface.jpg)
+![GitHub Logo](/images/webInterface.jpg){:height="50%" width="50%"}
 
 ## Wiring
 Terrible pictures of my wiring.  I know my desk is a mess
