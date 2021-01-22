@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Panneau de contrôle des relais</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.4.1/materia/bootstrap.min.css" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+
+  <style>
+  html, body {
+	width: 100%;
+	height: 100%;
+  }
+  
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6
+  {
+	margin-bottom: 0;
+  }
+  
+  .card-body .row
+  {
+	padding:5px 0 5px 0;
+  }
+  
+  /* The switch - the box around the slider */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 90px;
+  height: 50px;
+  margin-bottom:-5px;
+}
+
+/* Hide default HTML checkbox */
+.switch input {display:none;}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 38px;
+  width: 38px;
+  left: 6px;
+  bottom: 6px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input.default:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(38px);
+  -ms-transform: translateX(38px);
+  transform: translateX(38px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+  </style>
+  
+  <script>
+	var baseUrl = "http://192.168.1.60";
+	
+	  $(document).ready(function() {
+		initialize();
+		sync();
+	});
+	
+	function sync()
+	{		
+		$.getJSON( baseUrl + "/relay/0", function(data) { $('#toggle0').prop('checked', data.value); });
+		$.getJSON( baseUrl + "/relay/1", function(data) { $('#toggle1').prop('checked', data.value); });
+		$.getJSON( baseUrl + "/relay/2", function(data) { $('#toggle2').prop('checked', data.value); });
+		$.getJSON( baseUrl + "/relay/3", function(data) { $('#toggle3').prop('checked', data.value); });
+		$.getJSON( baseUrl + "/relay/4", function(data) { $('#toggle4').prop('checked', data.value); });
+		$.getJSON( baseUrl + "/relay/5", function(data) { $('#toggle5').prop('checked', data.value); });
+		$.getJSON( baseUrl + "/relay/6", function(data) { $('#toggle6').prop('checked', data.value); });
+		$.getJSON( baseUrl + "/relay/7", function(data) { $('#toggle7').prop('checked', data.value); });
+		$.getJSON( baseUrl + "/relay/8", function(data) { $('#toggle8').prop('checked', data.value); });
+	}
+	
+	function initialize()
+	{
+		var relayDetails = "";
+		for(i=0;i<9;i++)
+		{
+			relayDetails += '<div class="row align-middle">' +
+							'	<div class="col text-left align-self-center"><H3>Relais ' + i + '</H3></div>' +
+							'	<div class="col text-right align-self-center">' +
+							'		<label class="switch">' +
+							'		  <input id="toggle' + i + '" type="checkbox" class="default" data-idrelay="' + i + '" onclick="toggleChanged(this)" >' +
+							'		  <span class="slider round"></span>' +
+							'		</label>' +
+							'	</div>' +
+							'</div>';
+		}
+		$("#relays").html(relayDetails);
+	}
+	
+	function toggleChanged(sender)
+	{
+		var idRelay = $('#'+sender.id).data("idrelay");
+		var val = 0;
+		if(sender.checked){ val = 1; }				
+		$.post( baseUrl + "/relay/" + idRelay + "?value=" + val );
+	}
+  </script>
+</head>
+<body>
+<br/>
+<div class="container">	
+	<div class="row">	
+		<div class="col d-flex justify-content-center" >		
+			<div class="card bg-light text-center" style="width: 19rem;">
+			  <div class="card-header"><H2>Panneau de Contrôle</H2></div>
+			  <div class="card-body">
+				<div id="relays" class="container" />
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>
+

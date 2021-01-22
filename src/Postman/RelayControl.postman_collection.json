@@ -1,0 +1,93 @@
+{
+	"info": {
+		"name": "RelayControl",
+		"_postman_id": "a80bfc51-8e89-d91a-60df-42b0d422ca79",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET relay",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "192.168.1.60/relay/5",
+					"host": [
+						"192",
+						"168",
+						"1",
+						"60"
+					],
+					"path": [
+						"relay",
+						"5"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "POST relay",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "162.168.1.60/relay/5?value=1",
+					"host": [
+						"162",
+						"168",
+						"1",
+						"60"
+					],
+					"path": [
+						"relay",
+						"5"
+					],
+					"query": [
+						{
+							"key": "value",
+							"value": "1",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6d782196-851f-4e75-81b1-732022f0eef6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "87927e5c-049b-4162-958a-d9d056623ad3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "362c5d18-b286-4402-9a7c-eb2b859674b8",
+			"key": "url",
+			"value": "192.168.1.61",
+			"type": "text"
+		}
+	]
+}
