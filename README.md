@@ -5,14 +5,15 @@ NodeMCU Relay controller (api and web interface)
 https://create.arduino.cc/projecthub/electropeak/getting-started-w-nodemcu-esp8266-on-arduino-ide-28184f
 
 ## Relay Api routes :
-GET http://{ipAddress}/relay/{id}
+GET http://{ipAddress}/relay/{id} <br/>
 POST http://{ipAddress}/relay/{id}/?value=[0|1]
 
 ## Web Interface
 <img src="./images/webInterface.jpg" width="500px">
 
 ## Wiring
-Terrible pictures of my wiring.  I know my desk is a mess
-![Wiring1](/images/wiring1.jpg)
+Terrible pictures of my wiring.  I know my desk is a mess <br/>
 
+![Wiring1](/images/wiring1.jpg)
+ <br/>
 ![Wiring2](/images/wiring2.jpg)
